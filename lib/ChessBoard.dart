@@ -11,10 +11,17 @@ class ChessBoard {
   int count = 0;
   List<List<int>>? board;
   var Queen = 1;
+  var solutions;
 
   CreateBoard() {
     board = List.generate(size!, (i) => List.filled(size!, 0, growable: false),
         growable: false);
+    solutions = List.generate(
+        100,
+        (i) => List.generate(
+            size!, (j) => List.filled(size!, 0, growable: false),
+            growable: false),
+        growable: true);
   }
 
   CheckResult() {
@@ -111,6 +118,11 @@ class ChessBoard {
 
         if (row == size! - 1) {
           if (CheckResult() == 0) {
+            for (int i = 0; i < size!; i++) {
+              for (int j = 0; j < size!; j++) {
+                solutions?[count][i][j] = board![i][j];
+              }
+            }
             count++;
           }
         }

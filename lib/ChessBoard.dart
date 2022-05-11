@@ -17,7 +17,7 @@ class ChessBoard {
     board = List.generate(size!, (i) => List.filled(size!, 0, growable: false),
         growable: false);
     solutions = List.generate(
-        100,
+        725,
         (i) => List.generate(
             size!, (j) => List.filled(size!, 0, growable: false),
             growable: false),
@@ -130,5 +130,10 @@ class ChessBoard {
         board![row][column_n] = 0;
       }
     }
+  }
+
+  Solve() {
+    Recursion(0);
+    solutions.removeRange(count, solutions.length);
   }
 }

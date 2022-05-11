@@ -5,9 +5,11 @@ import 'package:dart_application_1/ChessBoard.dart' as chess_board;
 void main() {
   int? boardSize = 8;
   var board = chess_board.ChessBoard(boardSize);
-  board.Recursion(0);
-
+  board.Solve();
   print(board.count);
+
+  print("length is ${board.solutions.length}");
+
   for (int i = 0; i < board.count; i++) {
     print("solution number ${i + 1}");
     for (int row = 0; row < boardSize; row++) {
